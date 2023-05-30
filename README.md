@@ -2,10 +2,8 @@
 
 <h1 align="center">Interstellar</h1>
 
-Static files/assets used to spin up an Ultraviolet website on vercel.app.
+Static files/assets used to spin up an Interstellar website on vercel.app.
 
-### Guide
-fork this, go on vercel, then start a project with this, then go to build and output settings, then change the output directory to public
 ### Bare server
 
 You will need to point your Bare server to an external one/a different directory (if you're using reverse proxy software).
