@@ -49,14 +49,14 @@
     <script src="error.js"></script>
     
     <script>
-// Find the button element by its ID
-var registerButton = document.getElementById("uv-register-sw");
-
-// Create a new click event
-var clickEvent = new Event("click");
-
-// Dispatch the click event on the button
-registerButton.dispatchEvent(clickEvent);
+document.addEventListener('DOMContentLoaded', function() {
+  var registerButton = document.getElementById("uv-register-sw");
+  
+  if (registerButton) {
+    var clickEvent = new Event("click");
+    registerButton.dispatchEvent(clickEvent);
+  }
+});
     </script>
   </body>
 </html>
