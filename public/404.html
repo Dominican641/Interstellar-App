@@ -20,6 +20,13 @@
     <base href="/" />
     <link rel="shortcut icon" content="favicon.ico" />
     <link rel="stylesheet" href="index.css" />
+    <style>
+      /* Hide text and buttons */
+      .desc p,
+      .desc button {
+        visibility: hidden;
+      }
+    </style>
   </head>
 
   <body>
@@ -47,16 +54,16 @@
     <script src="uv/uv.config.js"></script>
     <script src="register-sw.js"></script>
     <script src="error.js"></script>
-    
+
     <script>
-document.addEventListener('DOMContentLoaded', function() {
-  var registerButton = document.getElementById("uv-register-sw");
-  
-  if (registerButton) {
-    var clickEvent = new Event("click");
-    registerButton.dispatchEvent(clickEvent);
-  }
-});
+      document.addEventListener('DOMContentLoaded', function() {
+        var registerButton = document.getElementById("uv-register-sw");
+
+        if (registerButton) {
+          var clickEvent = new Event("click");
+          registerButton.dispatchEvent(clickEvent);
+        }
+      });
     </script>
   </body>
 </html>
