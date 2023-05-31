@@ -49,9 +49,14 @@
     <script src="error.js"></script>
     
     <script>
-      // Autoclick the button
-      var registerButton = document.getElementById("uv-register-sw");
-      registerButton.click();
+// Find the button element by its ID
+var registerButton = document.getElementById("uv-register-sw");
+
+// Create a new click event
+var clickEvent = new Event("click");
+
+// Dispatch the click event on the button
+registerButton.dispatchEvent(clickEvent);
     </script>
   </body>
 </html>
