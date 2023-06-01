@@ -1,57 +1,56 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
-    />
-    <title>Interstellar</title>
-    <meta
-      name="description"
-      content="Interstellar is a sophisticated proxy used for evading internet censorship or accessing websites in a controlled sandbox using the power of service-workers."
-    />
-    <meta
-      name="keywords"
-      content="Interstellar"
-    />
-    <meta
-      name="theme-color"
-      media="(prefers-color-scheme: dark)"
-      content="#434c5e"
-    />
-    <meta name="googlebot" content="index, follow, snippet" />
-    <link rel="shortcut icon" href="uv.png" />
-    <link rel="stylesheet" href="index.css" />
-    <script src="uv/uv.bundle.js" defer></script>
-    <script src="uv/uv.config.js" defer></script>
-    <script src="register-sw.js" defer></script>
-    <script src="search.js" defer></script>
-    <script src="index.js" defer></script>
-  </head>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interstellar App</title>
+</head>
+<body>
+  <form id="uv-form">
+    <input type="text" id="uv-address" placeholder="Enter URL">
+    <input type="text" id="uv-search-engine" placeholder="Search Engine">
+    <button type="submit">Go</button>
+  </form>
 
-  <body>
-    <div
-      title="Interstellar Logo"
-      class="flex-center logo-wrapper header-center"
-    >
-      <img class="logo" src="uv.png" alt="Interstellar" />
-      <h1>Interstellar</h1>
-    </div>
-    <div class="flex-center desc">
-      <p>Interstellar is a sophisticated proxy used for evading internet censorship.</p>
-    </div>
-    <form id="uv-form" class="flex-center">
-      <input
-        id="uv-search-engine"
-        value="https://www.google.com/search?q=%s"
-        type="hidden"
-      />
-      <input id="uv-address" type="text" placeholder="Search">
-    </form>
-    <div class="desc left-margin">
-      <p id="uv-error"></p>
-      <pre id="uv-error-code"></pre>
-    </div>
-  </body>
+  <script>
+    /**
+     * @type {HTMLFormElement}
+     */
+    const form = document.getElementById("uv-form");
+    /**
+     * @type {HTMLInputElement}
+     */
+    const address = document.getElementById("uv-address");
+    /**
+     * @type {HTMLInputElement}
+     */
+    const searchEngine = document.getElementById("uv-search-engine");
+    /**
+     * @type {HTMLParagraphElement}
+     */
+    const error = document.getElementById("uv-error");
+    /**
+     * @type {HTMLPreElement}
+     */
+    const errorCode = document.getElementById("uv-error-code");
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      try {
+        await registerSW();
+      } catch (err) {
+        error.textContent = "Failed to register service worker.";
+        errorCode.textContent = err.toString();
+        throw err;
+      }
+
+      const url = search(address.value, searchEngine.value);
+
+      const newTab = window.open();
+      newTab.opener = null;
+      newTab.location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
+    });
+  </script>
+</body>
 </html>
