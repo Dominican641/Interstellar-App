@@ -1,4 +1,4 @@
-<p align="center"><img src="https://raw.githubusercontent.com/InterstellarAI/public/uv.png" height="200"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/Interstellar-App/public/uv.png" height="200"></p>
 
 <h1 align="center">Interstellar</h1>
 
