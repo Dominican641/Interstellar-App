@@ -1,8 +1,6 @@
-// This file overwrites the stock UV config.js
-
 self.__uv$config = {
   prefix: "/uv/service/",
-  bare: "https://bless.kanda.ru/bare/",
+  bare: "https://tribe.norushcharge.com/bare/",
   encodeUrl: Ultraviolet.codec.xor.encode,
   decodeUrl: Ultraviolet.codec.xor.decode,
   handler: "/uv/uv.handler.js",
