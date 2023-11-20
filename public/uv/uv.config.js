@@ -1,6 +1,6 @@
 self.__uv$config = {
   prefix: "/uv/service/",
-  bare: location.hostname == 'localhost' ? location.origin + '/api/bare/' : location.protocol + '//uv.' + location.host + '/',
+  bare: "https://uv.holyubofficial.net/",
   encodeUrl: Ultraviolet.codec.xor.encode,
   decodeUrl: Ultraviolet.codec.xor.decode,
   handler: "/uv/uv.handler.js",
